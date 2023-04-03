@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"> 
+    <link rel="shortcut icon" href="./assets/imgs/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap"/>
+    <title>MyCalculater</title>
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <h1>CALCULATOR</h1>
+        </div>
+    </header>
+    
+    <div id="calculater" class="nk">
+        <input type="text" placeholder="0" id="display" disabled>
+        <br />
+        <button id="ac" class="operator"><b>AC</b></button>
+        <button id="de" class="operator"><b>DE</b></button>
+        <button id="%" class="operator"><b>%</b></button>
+        <button id="/" class="operator"><b>/</b></button>
+        <br />
+        <button id="7"><b>7</b></button>
+        <button id="8"><b>8</b></button>
+        <button id="9"><b>9</b></button>
+        <button id="*" class="operator"><b>*</b></button>
+        <br />
+        <button id="4"><b>4</b></button>
+        <button id="5"><b>5</b></button>
+        <button id="6"><b>6</b></button>
+        <button id="-" class="operator"><b>-</b></button>
+        <br />
+        <button id="3"><b>3</b></button>
+        <button id="2"><b>2</b></button>
+        <button id="1"><b>1</b></button>
+        <button id="+" class="operator"><b>+</b></button>
+        <br />
+        <button id="00"><b>00</b></button>
+        <button id="0"><b>0</b></button>
+        <button id="." class="operator"><b>.</b></button>
+        <button id="=" class="operator"><b>=</b></button>
+    </div>
+</body>
+<script>
+    const display = document.querySelector("#display")
+    const button = document.querySelectorAll("button")
+    const toggle = document.getElementById('toggleDark');
+    const body = document.querySelector('body');
+
+    button.forEach((btn) => {
+        btn.addEventListener("click", () => 
+        {
+            if (btn.id === "=") 
+            {
+                display.value = eval(display.value);
+            } 
+            else if (btn.id === "ac") 
+            {
+                display.value = "";
+            }
+            else if (btn.id === "de") 
+            {
+                display.value = display.value.slice(0, -1);
+            } 
+            else 
+            {
+                display.value += btn.id;
+            }
+        })
+    })
+
+</script>
+
+</html>
